@@ -8,7 +8,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 import Search from './pages/Search';
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <>
@@ -28,5 +28,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
