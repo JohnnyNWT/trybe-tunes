@@ -23,7 +23,6 @@ export default class Album extends React.Component {
 
   render() {
     const { albumTrackCollection, nameAlbum, artistName } = this.state;
-    console.log(albumTrackCollection);
     return (
       <>
         <Header />
@@ -38,6 +37,7 @@ export default class Album extends React.Component {
             albumTrackCollection.map(({ trackName, previewUrl, trackId }) => (
               <MusicCard
                 key={ trackId }
+                trackId={ trackId }
                 trackName={ trackName }
                 previewUrl={ previewUrl }
               />
