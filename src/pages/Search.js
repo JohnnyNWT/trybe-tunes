@@ -62,7 +62,6 @@ export default class Search extends React.Component {
             {`Resultado de álbuns de: ${savedArtist}`}
           </h2>
           {
-
             albuns.map((album) => (
               <Link
                 key={ album.collectionId }
