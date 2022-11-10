@@ -1,9 +1,12 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class ComponentLoading extends React.Component {
   render() {
     return (
-      <h2>Carregando...</h2>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     );
   }
 }

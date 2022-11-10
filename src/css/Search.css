@@ -1,0 +1,47 @@
+.input-search {
+  width: 519px;
+  height: 45px;
+  background: #FFFFFF;
+  border: 1px solid #3D495C;
+  border-radius: 6px;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.btn-search {
+  width: 134px;
+  height: 45px;
+  background: #003BE5;
+  color: #FFFFFF;
+  border-radius: 3px;
+  border: none;
+}
+
+.card {
+  width: 200px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.container-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.centralizar-albuns {
+  display: flex;
+  justify-content: center;
+}
+
+.text-result {
+  margin-top: 40px;
+  text-align: center;
+}
