@@ -33,21 +33,21 @@ export default class Login extends React.Component {
     const minLength = 3;
     return (
       <div className="container-login" data-testid="page-login">
-        <img src={ Logo } className="img-logo" alt="logo trybe tunes"/>
+        <img src={ Logo } className="img-logo" alt="logo trybe tunes" />
         <input
           data-testid="login-name-input"
           className="input-login"
           type="text"
           name="nome"
           placeholder="Insira seu nome"
-          onChange={this.handleChange}
+          onChange={ this.handleChange }
         />
         <button
           data-testid="container-login"
           className="btn btn-outline-success"
           type="button"
-          disabled={profileName.length < minLength}
-          onClick={this.handleClick}
+          disabled={ profileName.length < minLength }
+          onClick={ this.handleClick }
         >
           Entrar
         </button>

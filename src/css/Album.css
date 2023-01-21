@@ -1,0 +1,66 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+.page-album {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 10vh;
+}
+
+.button-favorite {
+  border: none;
+  background: none;
+}
+
+.bi-heart {
+  font-size: 20px;
+  border: none;
+  background: none;
+}
+
+.bi-heart-fill {
+  font-size: 20px;
+  color: red;
+  border: none;
+  background: none;
+}
+
+.container-track-musics {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-tracks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+.name-album {
+  font-family: 'Epilogue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 37px;
+  color: #023031;
+  margin-top: 5px;
+}
+
+.name-artist {
+  font-family: 'Epilogue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 25px;
+  color: #023031;
+}
+
+.container-info-album {
+  text-align: center;
+}

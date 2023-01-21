@@ -49,14 +49,14 @@ export default class Search extends React.Component {
               type="text"
               name="artista"
               placeholder="Nome do Artista"
-              onChange={this.handleChange}
+              onChange={ this.handleChange }
             />
             <button
               data-testid="search-artist-button"
               className="btn btn-primary"
               type="button"
-              onClick={this.handleSearch}
-              disabled={searchArtist.length < MAX_CHARACTER_LENGTH}
+              onClick={ this.handleSearch }
+              disabled={ searchArtist.length < MAX_CHARACTER_LENGTH }
             >
               Pesquisar
             </button>
@@ -65,25 +65,29 @@ export default class Search extends React.Component {
             {`Resultado de álbuns de: ${savedArtist}`}
           </h2>
           <div className="centralizar-albuns">
-          <div className="container-cards">
-            {
-              albuns.map((album) => (
-                <Link
-                  key={album.collectionId}
-                  data-testid={`link-to-album-${album.collectionId}`}
-                  to={`/album/${album.collectionId}`}
-                >
-                  <div className="card">
-                    <img src={album.artworkUrl100} className="card-img-top" alt={album.collectionName} />
-                    <div class="card-body">
-                      <h5 className="card-title">{album.collectionName}</h5>
-                      <p className="card-text">{album.artistName}</p>
+            <div className="container-cards">
+              {
+                albuns.map((album) => (
+                  <Link
+                    key={ album.collectionId }
+                    data-testid={ `link-to-album-${album.collectionId}` }
+                    to={ `/album/${album.collectionId}` }
+                  >
+                    <div className="card">
+                      <img
+                        src={ album.artworkUrl100 }
+                        className="card-img-top"
+                        alt={ album.collectionName }
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">{album.collectionName}</h5>
+                        <p className="card-text">{album.artistName}</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))
-            }
-          </div>
+                  </Link>
+                ))
+              }
+            </div>
           </div>
         </div>
       )
@@ -97,14 +101,14 @@ export default class Search extends React.Component {
                 type="text"
                 name="artista"
                 placeholder="Nome do Artista"
-                onChange={this.handleChange}
+                onChange={ this.handleChange }
               />
               <button
                 data-testid="search-artist-button"
                 className="btn btn-primary"
                 type="button"
-                onClick={this.handleSearch}
-                disabled={searchArtist.length < MAX_CHARACTER_LENGTH}
+                onClick={ this.handleSearch }
+                disabled={ searchArtist.length < MAX_CHARACTER_LENGTH }
               >
                 Pesquisar
               </button>
@@ -115,18 +119,3 @@ export default class Search extends React.Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-{/* <section>
-<img src={album.artworkUrl100} alt={album.collectionName} />
-<h3>{album.collectionName}</h3>
-<p>{album.artistName}</p>
-</section> */}

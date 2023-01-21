@@ -2,41 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import ComponentLoading from '../pages/ComponentLoading';
+import '../css/Album.css';
 
 export default class MusicCard extends React.Component {
   state = {
-    isChecked: false,
+    isFavorite: false,
     isLoading: false,
   };
 
   async componentDidMount() {
     const { trackId } = this.props;
     const favoriteSongs = await getFavoriteSongs();
-    console.log(favoriteSongs);
+    // console.log(favoriteSongs);
     const isFavorite = favoriteSongs.some((song) => song.trackId === trackId);
     this.setState({
-      isChecked: isFavorite,
+      isFavorite,
     });
   }
 
   handleClickFavorite = async (track) => {
+    const { isFavorite } = this.state;
     this.setState({
-      isLoading: true,
+      isFavorite: !isFavorite,
     });
     await addSong(track);
-    this.setState({
-      isLoading: false,
-      isChecked: true,
-    });
   };
 
   render() {
     const { trackName, previewUrl, trackId } = this.props;
-    const { isLoading, isChecked } = this.state;
+    const { isLoading, isFavorite } = this.state;
 
     return (
       isLoading ? <ComponentLoading /> : (
-        <div>
+        <div className="container-tracks">
+          <hr />
           <h5>
             {trackName}
           </h5>
@@ -48,15 +47,16 @@ export default class MusicCard extends React.Component {
             <code>audio</code>
             .
           </audio>
-          <label htmlFor="favorites">
-            Favorita
-            <input
-              type="checkbox"
-              data-testid={ `checkbox-music-${trackId}` }
-              checked={ isChecked }
-              onChange={ () => this.handleClickFavorite(trackId) }
-            />
-          </label>
+          {/* <button onClick={ () => this.handleClickFavorite(trackId)} className="button-favorite">
+            <i class="bi bi-heart"></i>
+            <i class="bi bi-heart-fill"></i>
+          </button> */}
+          <button
+            type="button"
+            className={ isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart' }
+            data-testid={ `checkbox-music-${trackId}` }
+            onClick={ () => this.handleClickFavorite(trackId) }
+          />
         </div>
       )
     );
