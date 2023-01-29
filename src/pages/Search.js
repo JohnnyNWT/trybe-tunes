@@ -112,7 +112,10 @@ export default class Search extends React.Component {
               >
                 Pesquisar
               </button>
-              {naoEncontrado && <h2>Nenhum álbum foi encontrado</h2>}
+              {naoEncontrado
+              && <h2 className="album-not-found">
+                Nenhum álbum foi encontrado
+                 </h2>}
             </div>
           </>
         )
