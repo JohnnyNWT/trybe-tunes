@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import ComponentLoading from '../pages/ComponentLoading';
 import '../css/Album.css';
 
@@ -13,7 +13,6 @@ export default class MusicCard extends React.Component {
   async componentDidMount() {
     const { trackId } = this.props;
     const favoriteSongs = await getFavoriteSongs();
-    // console.log(favoriteSongs);
     const isFavorite = favoriteSongs.some((song) => song.trackId === trackId);
     this.setState({
       isFavorite,
@@ -25,7 +24,11 @@ export default class MusicCard extends React.Component {
     this.setState({
       isFavorite: !isFavorite,
     });
-    await addSong(track);
+    if (!isFavorite) {
+      await addSong(track);
+    } else {
+      await removeSong(track);
+    }
   };
 
   render() {
@@ -55,7 +58,7 @@ export default class MusicCard extends React.Component {
             type="button"
             className={ isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart' }
             data-testid={ `checkbox-music-${trackId}` }
-            onClick={ () => this.handleClickFavorite(trackId) }
+            onClick={ () => this.handleClickFavorite({ trackId, previewUrl, trackName }) }
           />
         </div>
       )
