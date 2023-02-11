@@ -24,7 +24,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 .img-header {
@@ -53,10 +52,12 @@
 .username-text {
   font-weight: 500;
   font-size: 18px;
-  /* margin-left: 37px; */
   margin: 0 auto;
 }
 
 .img-profile {
   margin-left: 4px;
+  width: 40px;
+  height: 38px;
+  border-radius: 50%;
 }
