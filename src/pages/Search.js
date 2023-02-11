@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Search.css';
 
 export default class Search extends React.Component {
@@ -10,7 +10,6 @@ export default class Search extends React.Component {
     searchArtist: '',
     savedArtist: '',
     albuns: [],
-    naoEncontrado: false,
   };
 
   handleChange = ({ target }) => {
@@ -21,22 +20,16 @@ export default class Search extends React.Component {
 
   handleSearch = async () => {
     const { searchArtist } = this.state;
-    this.setState({
-      naoEncontrado: false,
-    });
     const API = await searchAlbumsAPI(searchArtist);
     this.setState({
       savedArtist: searchArtist,
       albuns: API,
       searchArtist: '',
     });
-    if (API.length === 0) {
-      this.setState({ naoEncontrado: true });
-    }
   };
 
   render() {
-    const { searchArtist, savedArtist, albuns, naoEncontrado } = this.state;
+    const { searchArtist, savedArtist, albuns } = this.state;
     const MAX_CHARACTER_LENGTH = 2;
     return (
       albuns.length > 0 ? (
@@ -112,10 +105,6 @@ export default class Search extends React.Component {
               >
                 Pesquisar
               </button>
-              {naoEncontrado
-                && <h2 className="album-not-found">
-                  Nenhum álbum foi encontrado
-                </h2>}
             </div>
           </>
         )
