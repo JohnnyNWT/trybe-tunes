@@ -8,23 +8,19 @@ import '../css/Header.css';
 
 export default class Header extends React.Component {
   state = {
-    userName: '',
+    username: '',
     isLoading: false,
   };
 
   async componentDidMount() {
-    // this.setState({
-    //   isLoading: true,
-    // });
-    const user = await getUser();
+    const { username } = await getUser();
     this.setState({
-      userName: user.name,
-      // isLoading: false,
+      username,
     });
   }
 
   render() {
-    const { userName, isLoading } = this.state;
+    const { username, isLoading } = this.state;
     return (
       isLoading ? <ComponentLoading />
         : (
@@ -34,7 +30,7 @@ export default class Header extends React.Component {
               <div className="container-profile">
                 <img src={ ProfileIcon } className="img-profile" alt="profile icon" />
                 <span data-testid="header-user-name" className="username-text">
-                  { userName }
+                  { username }
                 </span>
               </div>
             </div>

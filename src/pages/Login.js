@@ -24,7 +24,7 @@ export default class Login extends React.Component {
     this.setState({
       isLoading: true,
     });
-    await createUser({ name: profileName });
+    await createUser({ username: profileName });
     history.push('/search');
   };
 
