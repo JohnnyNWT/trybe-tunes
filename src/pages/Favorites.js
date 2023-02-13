@@ -11,7 +11,6 @@ export default class Favorites extends React.Component {
 
   async componentDidMount() {
     const favoriteSongs = await getFavoriteSongs();
-    console.log(favoriteSongs);
     this.setState({
       favorite: [...favoriteSongs],
     });

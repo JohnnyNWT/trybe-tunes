@@ -51,10 +51,6 @@ export default class MusicCard extends React.Component {
             <code>audio</code>
             .
           </audio>
-          {/* <button onClick={ () => this.handleClickFavorite(trackId)} className="button-favorite">
-            <i class="bi bi-heart"></i>
-            <i class="bi bi-heart-fill"></i>
-          </button> */}
           <button
             type="button"
             className={ isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart' }
