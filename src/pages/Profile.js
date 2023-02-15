@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
               <span className="title-style">E-mail:</span>
               {' '}
               <span className="subtitle-style">
-                { !email ? 'usuario@usuario.com.br' : email }
+                { email }
               </span>
             </label>
           </div>

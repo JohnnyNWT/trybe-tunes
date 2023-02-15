@@ -9,22 +9,25 @@ import '../css/Login.css';
 export default class Login extends React.Component {
   state = {
     profileName: '',
+    profileEmail: '',
     isLoading: false,
   };
 
   handleChange = ({ target }) => {
+    const { name, value } = target;
+    console.log(target.value);
     this.setState({
-      profileName: target.value,
+      [name]: value,
     });
   };
 
   handleClick = async () => {
-    const { profileName } = this.state;
+    const { profileName, profileEmail } = this.state;
     const { history } = this.props;
     this.setState({
       isLoading: true,
     });
-    await createUser({ username: profileName });
+    await createUser({ username: profileName, email: profileEmail });
     history.push('/search');
   };
 
@@ -38,8 +41,16 @@ export default class Login extends React.Component {
           data-testid="login-name-input"
           className="input-login"
           type="text"
-          name="nome"
+          name="profileName"
           placeholder="Insira seu nome"
+          onChange={ this.handleChange }
+        />
+        <input
+          data-testid="login-email-input"
+          className="input-login"
+          type="text"
+          name="profileEmail"
+          placeholder="Insira seu email"
           onChange={ this.handleChange }
         />
         <button

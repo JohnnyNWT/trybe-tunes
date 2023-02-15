@@ -28,13 +28,17 @@ export default class Header extends React.Component {
         : (
           <header data-testid="header-component">
             <div className="container-header">
-              <img src={ Logo } className="img-header" alt="logo trybe tunes" />
+              <Link to="/">
+                <img src={ Logo } className="img-header" alt="logo trybe tunes" />
+              </Link>
               <div className="container-profile">
-                <img
-                  src={ !image ? ProfileIcon : image }
-                  className="img-profile"
-                  alt="profile icon"
-                />
+                <Link to="/profile">
+                  <img
+                    src={ !image ? ProfileIcon : image }
+                    className="img-profile"
+                    alt="profile icon"
+                  />
+                </Link>
                 <span data-testid="header-user-name" className="username-text">
                   { username }
                 </span>
